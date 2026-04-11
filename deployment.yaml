@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kamera-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kamera
+  template:
+    metadata:
+      labels:
+        app: kamera
+    spec:
+      containers:
+      - name: kamera-container
+        image: bsbhadauria/kamera-website:latest
+        ports:
+        - containerPort: 80
